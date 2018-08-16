@@ -24,22 +24,23 @@
 class RemoteConsole: public Print
 {
   public:
-    bool begin(String hostname);
+    bool begin(int baud = 115200, int ser_wait = 0);
     virtual size_t write(uint8_t character);
     bool loop(void);
     bool connect(void);
-    RemoteConsole();
+    RemoteConsole(size_t buffer_size = 1000);
     ~RemoteConsole();
   private:
     uint8_t *_buffer;
-    int _buffer_len;
+    long int _buffer_len;
     unsigned long _last_loop = 0;
     WiFiServer *_server;
     void advance(void);
-    int _pos;
-    int _len;
-    int _start;
-    bool _trigger;
+    long int _pos;
+    long int _len;
+    long int _start;
+    bool _connected;
+    int _chunk;
 };
 
 #endif

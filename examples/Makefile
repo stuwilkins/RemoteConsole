@@ -8,7 +8,7 @@ BOARD_TAG     = adafruit_feather_m0
 CXXFLAGS_STD = -DARDUINO_ARCH_SAMD
 ARDUINO_OTA = $(ARDUINO_PACKAGE_DIR)/arduino/tools/arduinoOTA/1.2.0/
 
-ARDUINO_LIBS += Wire uCRC16Lib eeprom_i2c
+ARDUINO_LIBS += SPI WiFi101 RemoteConsole
 
 include /usr/local/opt/arduino-mk/Sam.mk
 
